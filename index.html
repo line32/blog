@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="blog.css" media="screen" />
+<title>Blog</title>
+</head>
+
+<body>
+	<div id="container">
+	<h1>Blog title</h1>
+    <ul>
+    	<li>Articles</li>
+        <li>About</li>
+        <li>Twitter</li>
+        <li>Github</li>
+    </ul>
+    <h2>Posts</h2>
+    <div id="articles">    
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>
+<!--Use good Object Oriented code: Create a blog object, and a constructor function for articles.
+Leave as little in the window (global) namespace as possible: attach functions to objects, etc.
+Create the markup for an example Article in the DOM, then use jQuery to clone that for each article.
+Your Article prototype should have a .toHtml() function that adds new data to the DOM.
+Add basic styles: a css reset, content in a single centered column, reasonable margins, etc.
+
+-->
