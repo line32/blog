@@ -183,9 +183,23 @@ function Post(title, category, timestamp, url, author, body) {
     this.author = author;   
     this.body = body;
     this.toHTML = function () {
+		var dateOut;
+		var timeInMs = Date.now();
+		var tempDate = new Date(this.publishedOn);
+		tempDate = Date.parse(tempDate);
+		var dateDiff = timeInMs - tempDate;
+		//Get 1 day in milliseconds
+		var oneDay=1000*60*60*24;
+		var oneHour = 60*1000;
+		if (dateDiff > oneDay){
+			dateOut = "This post was created " + Math.floor(dateDiff / oneDay) + " days ago.";
+		} else {
+			dateOut = "This post was created " + Math.floor(dateDiff / oneHour) + " hours ago.";
+		}
 		var artHTML = '<article class="post">\n' + "	";
 		artHTML += '<h3>' + this.title + '</h3>\n' + "	";
-		artHTML += '<div class="timestamp">' + this.publishedOn + '</div>\n' + "	";
+		artHTML += '<div class="author">By <a href="' + this.authorUrl + '">' + this.author + '</a></div>\n' + "	";
+		artHTML += '<div class="timestamp">' + this.publishedOn + ' '+ dateOut + '</div>\n' + "	";
 		artHTML += this.body + "\n</article>";
         return artHTML;
     }; 
